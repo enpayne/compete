@@ -1,5 +1,10 @@
 var express = require('express');
 var app     = express();
+var redis   = require("redis"), client = redis.createClient();
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 app.use(express.static('public'));
 
@@ -22,6 +27,7 @@ app.get('/api/players', function(req, res) {
 
     res.json(players);
 });
+
 
 app.listen(8080);
 console.log('Magic happens on 8080');
