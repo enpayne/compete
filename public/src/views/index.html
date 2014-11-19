@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CompeteWithMe.ch</title>
+
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//localhost:35729/livereload.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- public/views/index.html -->
+    <link rel="stylesheet" href="dist/css/style.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+
+    <script src="dist/js/app.min.js"></script>
+</head>
+
+
+<body ng-app="app" ng-controller="mainController">
+
+
+    <div class="container">
+
+        <h1>CompeteWithMe</h1>
+
+        <p ng-repeat="player in players">{{player.name}}</p>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
