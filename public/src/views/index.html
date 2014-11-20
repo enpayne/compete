@@ -20,22 +20,26 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 
     <script src="dist/js/app.min.js"></script>
 </head>
 
 
-<body ng-app="app" ng-controller="mainController">
-
+<body ng-app="app">
 
     <div class="container">
 
         <h1>Tournamator</h1>
 
+        <div class="container" ng-view>
 
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook">Login</span></a>
+        </div>
 
 
+
+
+        <!--<a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook">Login</span></a>-->
 
     </div>
 

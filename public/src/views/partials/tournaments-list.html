@@ -1,0 +1,27 @@
+
+
+<table class="table table-striped">
+    <caption>Open tournaments</caption>
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Game</th>
+            <th>Area</th>
+            <th>Players</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tournament in tournaments">
+            <td>{{tournament.name}}</td>
+            <td>{{tournament.type}}</td>
+            <td>{{tournament.area}}</td>
+            <td>{{tournament.players}}</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<button type="button" class="btn btn-default" ng-click="showCreate()">Create new Tournament</button>
+

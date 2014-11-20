@@ -18,6 +18,26 @@ module.exports = function(app, passport) {
         res.json(players);
     });
 
+    app.get('/api/tournaments', function(req, res) {
+       var tournaments = [
+           {
+               name : "Flange Gilet",
+               type : "Tabletennis",
+               area : "Wettingen",
+               players : 5
+           }
+       ]
+        res.json(tournaments);
+    });
+
+    app.get('/tournaments', function(req, res) {
+       res.sendfile('./public/src/views/partials/tournaments-list.html');
+    });
+
+    app.get('/tournaments/create', function(req, res) {
+       res.sendfile('./public/src/views/partials/tournaments-create.html');
+    });
+
     app.get('/profile', isLoggedIn, function(req, res) {
         res.json(req.user); // get the user out of session and pass to template
     });
@@ -27,7 +47,7 @@ module.exports = function(app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/cb',
         passport.authenticate('facebook', {
-            successRedirect : '/',
+            successRedirect : '/tournaments',
             failureRedirect : '/'
         }));
 
