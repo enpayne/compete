@@ -7,8 +7,4 @@ angular.module('TournamentsController', [])
                $scope.tournaments = tournaments;
             });
 
-        $scope.showCreate = function() {
-            $http.get("/tournaments/create");
-        };
-
     }]);

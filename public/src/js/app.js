@@ -4,11 +4,11 @@ tournamatorApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/tournaments', {
-                templateUrl: './tournaments',
+                templateUrl: './partials/tournaments-list.html',
                 controller: 'tournamentsController'
             }).
             when('/tournaments/create', {
-                templateUrl: '/tournaments/create',
+                templateUrl: './partials/tournaments-create.html',
                 controller: 'tournamentsController'
             }).
             otherwise({

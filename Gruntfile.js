@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                 tasks: ['jshint', 'uglify']
             },
             html: {
-                files: ['public/src/views/*.html']
+                files: ['public/src/views/*.html', 'public/partials/*.html']
             }
         },
 

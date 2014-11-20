@@ -30,14 +30,6 @@ module.exports = function(app, passport) {
         res.json(tournaments);
     });
 
-    app.get('/tournaments', function(req, res) {
-       res.sendfile('./public/src/views/partials/tournaments-list.html');
-    });
-
-    app.get('/tournaments/create', function(req, res) {
-       res.sendfile('./public/src/views/partials/tournaments-create.html');
-    });
-
     app.get('/profile', isLoggedIn, function(req, res) {
         res.json(req.user); // get the user out of session and pass to template
     });
