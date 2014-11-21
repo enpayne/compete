@@ -1,6 +1,6 @@
 angular.module('TournamentsController', [])
 
-    .controller('tournamentsController', ["$scope", "$q", "Tournaments", function($scope, $http, Tournaments) {
+    .controller('tournamentsController', ["$scope", "$location", "Tournaments", function($scope, $location, Tournaments) {
 
         $scope.formData = {};
 
@@ -13,8 +13,15 @@ angular.module('TournamentsController', [])
             console.log(tournament);
             Tournaments.create(tournament)
                 .success(function() {
-                   console.log('success');
+                    Tournaments.get()
+                        .success(function(tournaments) {
+                           $location.path('#/tournaments');
+                        });
                 });
+        };
+
+        $scope.cancel = function() {
+          $location.path('#/tournaments');
         };
 
     }]);
