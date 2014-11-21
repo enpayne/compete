@@ -48,8 +48,8 @@ module.exports = function(grunt) {
                 tasks: ['less', 'cssmin']
             },
             js: {
-                files: ['public/src/js/**/*.js'],
-                tasks: ['jshint', 'uglify']
+                files: ['public/src/js/**/*.js']
+                //tasks: ['jshint', 'uglify']
             },
             html: {
                 files: ['public/src/views/*.html', 'public/partials/*.html']

@@ -22,15 +22,21 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 
-    <script src="dist/js/app.min.js"></script>
+    <!--<script src="dist/js/app.min.js"></script>-->
+    <script src="dist/js/controllers/PlayersControllers.js"></script>
+    <script src="dist/js/controllers/TournamentsControllers.js"></script>
+    <script src="dist/js/services/PlayersService.js"></script>
+    <script src="dist/js/services/TournamentsService.js"></script>
+    <script src="dist/js/app.js"></script>
+
 </head>
 
 
-<body ng-app="app">
+<body ng-app="app" ng-cloak="">
 
-    <div class="container">
+    <div class="page container">
 
-        <h1>Tournamator</h1>
+        <h1 class="page-header">Tournamator</h1>
 
         <div class="container" ng-view></div>
 

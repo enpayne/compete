@@ -1,4 +1,4 @@
-angular.module('PlayersController', [])
+angular.module('PlayersControllers', [])
 
     .controller('playersController', ["$scope", "$q", "Players", function($scope, $http, Players) {
 

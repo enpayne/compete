@@ -5,31 +5,50 @@ module.exports = function(app, passport) {
         res.sendfile('./public/src/views/index.html');
     });
 
-    app.get('/api/players', function(req, res) {
-        var players = [
-            {
-                name : "nick",
-                score : 7
-            },
-            {
-                name : "pete",
-                score : 5
-            }
-        ]
-
-        res.json(players);
-    });
+    var sendJson = function(err, res, json) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(json);
+        }
+    }
 
     app.get('/api/tournaments', function(req, res) {
-       Tournament.find(function(err, tournaments) {
-          if (err) {
-              res.send(err);
-          }
-
-           console.log('returning tournaments: ' + tournaments);
-           res.json(tournaments);
+        Tournament.find(function(err, tournaments) {
+          sendJson(err, res, tournaments);
 
        });
+    });
+
+    app.get('/api/tournaments/:tournament_id', function(req, res) {
+        Tournament.findOne({
+            _id : req.params.tournament_id
+        }, function(err, tournament) {
+            sendJson(err, res, tournament);
+        });
+    });
+
+    app.delete('/api/tournaments/:tournament_id', function(req, res) {
+        Tournament.remove({
+            _id : req.params.tournament_id
+        }, function(err, tournament) {
+            sendJson(err, res, tournament);
+        });
+    });
+
+    app.put('/api/tournaments/:tournament_id', function(req, res) {
+        var tournamentId = req.params.tournament_id;
+
+        Tournament.findById(tournamentId, function(err, tournament) {
+            tournament.name = req.body.name;
+            tournament.gameType = req.body.gameType;
+            tournament.area = req.body.area;
+
+            tournament.save(function(err, tournament) {
+               sendJson(err, res, tournament);
+            });
+        });
+
     });
 
     app.post('/api/tournaments', function(req, res) {
@@ -41,15 +60,12 @@ module.exports = function(app, passport) {
         }, function(err, tournament) {
            if (err) {
                res.send(err);
+               return;
            }
 
-               Tournament.find(function(err, tournaments) {
-                   if (err) {
-                       res.send(err);
-                   }
-
-                   res.json(tournaments);
-               });
+           Tournament.find(function(err, tournaments) {
+               sendJson(err, res, tournaments);
+           });
        });
 
     });

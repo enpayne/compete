@@ -11,6 +11,9 @@ angular.module('TournamentsService', [])
             updateTournament : function(id, tournament) {
                 return $http.put('api/tournaments/' + id, tournament);
             },
+            deleteTournament : function(id) {
+                return $http.delete('api/tournaments/' + id);
+            },
             create : function(tournament) {
                 return $http.post('api/tournaments', tournament);
             }

@@ -1,31 +1,36 @@
 
-<h3>Create a new Tournament</h3>
-
-<form class="form-horizontal" role="form">
-    <div class="form-group">
-        <label for="inputName" class="col-md-2 control-label">Name</label>
-        <div class="col-md-5">
-            <input ng-model="tournament.name" type="text" name="name" class="form-control" id="inputName" placeholder="Tournament Name">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputType" class="col-md-2 control-label">Game Type</label>
-        <div class="col-md-5">
-            <input ng-model="tournament.gameType" type="text" name="gameType" class="form-control" id="inputType" placeholder="Game Type">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputArea" class="col-md-2 control-label">Area</label>
-        <div class="col-md-5">
-            <input ng-model="tournament.area" type="text" name="area" class="form-control" id="inputArea" placeholder="Area">
-        </div>
-    </div>
-</form>
+<div class="row">
+    <h4>Create a new Tournament</h4>
+</div>
 
 <div class="row">
-    <div class="btn-toolbar col-md-7">
-        <button class="btn btn-default pull-right" ng-click="create(tournament)">Save</button>
-        <button class="btn btn-default pull-right" ng-click="cancel()">Back</button>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="inputName" class="col-md-2 control-label">Name</label>
+            <div class="col-md-5">
+                <input ng-model="tournament.name" type="text" name="name" value="{{ tournament.name }}" class="form-control" id="inputName" placeholder="Tournament Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputType" class="col-md-2 control-label">Game Type</label>
+            <div class="col-md-5">
+                <input ng-model="tournament.gameType" type="text" name="gameType" value="{{ tournament.gameType }}" class="form-control" id="inputType" placeholder="Game Type">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputArea" class="col-md-2 control-label">Area</label>
+            <div class="col-md-5">
+                <input ng-model="tournament.area" type="text" name="area" value="{{ tournament.area }}" class="form-control" id="inputArea" placeholder="Area">
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="btn-toolbar col-md-7">
+            <button class="btn btn-default pull-right" ng-click="save(tournament)">Save</button>
+            <button class="btn btn-default pull-right" ng-click="cancel()">Back</button>
+        </div>
     </div>
 </div>
+
 
