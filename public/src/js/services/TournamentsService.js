@@ -4,6 +4,9 @@ angular.module('TournamentsService', [])
         return {
             get : function() {
                 return $http.get('api/tournaments');
+            },
+            create : function(tournament) {
+                return $http.post('api/tournaments', tournament);
             }
         };
     }]);

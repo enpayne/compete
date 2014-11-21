@@ -1,3 +1,5 @@
+var Tournament = require('./models/tournament');
+
 module.exports = function(app, passport) {
     app.get('/', function(req, res) {
         res.sendfile('./public/src/views/index.html');
@@ -19,15 +21,37 @@ module.exports = function(app, passport) {
     });
 
     app.get('/api/tournaments', function(req, res) {
-       var tournaments = [
-           {
-               name : "Flange Gilet",
-               type : "Tabletennis",
-               area : "Wettingen",
-               players : 5
+       Tournament.find(function(err, tournaments) {
+          if (err) {
+              res.send(err);
+          }
+
+           console.log('returning tournaments: ' + tournaments);
+           res.json(tournaments);
+
+       });
+    });
+
+    app.post('/api/tournaments', function(req, res) {
+       Tournament.create({
+            name : req.body.name,
+            gameType : req.body.gameType,
+            area : req.body.area,
+            players : '0'
+        }, function(err, tournament) {
+           if (err) {
+               res.send(err);
            }
-       ]
-        res.json(tournaments);
+
+               Tournament.find(function(err, tournaments) {
+                   if (err) {
+                       res.send(err);
+                   }
+
+                   res.json(tournaments);
+               });
+       });
+
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {
