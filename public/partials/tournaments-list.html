@@ -1,28 +1,30 @@
 
 <h3>Open tournaments</h3>
 
-<table class="table table-striped">
+<div class="col-md-10">
+    <table class="table table-striped">
 
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Game</th>
-            <th>Area</th>
-            <th>Players</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="tournament in tournaments">
-            <td>{{tournament.name}}</td>
-            <td>{{tournament.gameType}}</td>
-            <td>{{tournament.area}}</td>
-            <td>{{tournament.players}}</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Game</th>
+                <th>Area</th>
+                <th>Players</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tournament in tournaments">
+                <td>{{tournament.name}}</td>
+                <td>{{tournament.gameType}}</td>
+                <td>{{tournament.area}}</td>
+                <td>{{tournament.players}}</td>
+            </tr>
 
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
 
-<a ng-href=".#/tournaments/create">Create new Tournament</a>
+    <a ng-href=".#/tournaments/create">Create new Tournament</a>
+</div>
 
 
