@@ -1,20 +1,18 @@
 
 <div class="row">
-    <h3>Open tournaments</h3>
+    <h3 class="page-header">Open tournaments</h3>
 </div>
 
-<div class="row">
+<div class="row" ng-show="tournaments.length" >
     <div class="col-md-10">
-        <table class="table table-striped">
-
+        <table class="table table-hover table-striped tournaments-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Game</th>
-                    <th>Area</th>
-                    <th>Players</th>
-                    <th></th>
-                    <th></th>
+                    <th class="col-md-4">Name</th>
+                    <th class="col-md-2">Game</th>
+                    <th class="col-md-3">Area</th>
+                    <th class="col-md-2">Players</th>
+                    <th class="col-md-2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +25,7 @@
                         <a href=".#/tournaments/edit/{{ tournament._id }}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </a>
-                    </td>
-                    <td>
+
                         <a href="javascript:void(0)" ng-click="delete(tournament)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
@@ -36,10 +33,16 @@
                 </tr>
 
             </tbody>
-
         </table>
-
-        <a ng-href=".#/tournaments/create">Create new Tournament</a>
     </div>
 </div>
+
+<div class="row" ng-hide="tournaments.length">
+    <strong>There are currently no tournaments. Go ahead and create one!</strong>
+</div>
+
+<div class="row top-buffer">
+        <a ng-href=".#/tournaments/create">Create new Tournament</a>
+</div>
+
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/competewithme.iml" filepath="$PROJECT_DIR$/.idea/competewithme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tournamator/.idea/tournamator.iml" filepath="$PROJECT_DIR$/../tournamator/.idea/tournamator.iml" />
     </modules>
   </component>
 </project>
