@@ -51,17 +51,6 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentCreateController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
-        User.get()
-            .success(function(user) {
-                if (user) {
-                    $scope.signedIn = true;
-                } else {
-                    $location.path('#/tournaments');
-                }
-                $scope.user = user;
-                console.log(user);
-            });
-
         $scope.save = function(tournament) {
             Tournaments.create(tournament)
                 .success(function() {

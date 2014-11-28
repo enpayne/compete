@@ -38,7 +38,6 @@
         </table>
     </div>
 
-
     <div class="row" ng-hide="tournaments.length">
         <strong ng-show="signedIn">There are currently no tournaments. Go ahead and create one!</strong>
         <strong ng-hide="signedIn">There are currently no tournaments. Sign in below to create one!</strong>
@@ -49,10 +48,6 @@
 
         <span ng-hide="signedIn" class="pull-right">Sign in via <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a></span>
         <span ng-show="signedIn" class="pull-right">Signed in as {{ user.facebook.name }} <a href="/logout" class="btn btn-primary"><span class="fa fa-facebook"></span> Sign out</a></span>
-    </div>
-
-    <div class="row top-buffer">
-
     </div>
 
 </div>

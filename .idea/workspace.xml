@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tournaments-list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tournaments-list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/partials/tournaments-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5717415" vertical-offset="0" max-vertical-offset="1188">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.814815" vertical-offset="185" max-vertical-offset="1098">
+              <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -94,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TournamentsControllers.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TournamentsControllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/dist/js/controllers/TournamentsControllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1494">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.64113325" vertical-offset="343" max-vertical-offset="1296">
+              <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -177,9 +177,9 @@
         <option value="$PROJECT_DIR$/app/models/user.js" />
         <option value="$PROJECT_DIR$/app/models/tournament.js" />
         <option value="$PROJECT_DIR$/app/routes.js" />
+        <option value="$PROJECT_DIR$/public/partials/tournaments-list.html" />
+        <option value="$PROJECT_DIR$/public/partials/tournaments-list.html" />
         <option value="$PROJECT_DIR$/public/dist/js/controllers/TournamentsControllers.js" />
-        <option value="$PROJECT_DIR$/public/partials/tournaments-list.html" />
-        <option value="$PROJECT_DIR$/public/partials/tournaments-list.html" />
       </list>
     </option>
   </component>
@@ -992,18 +992,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/js/controllers/TournamentsControllers.js">
+    <entry file="file://$PROJECT_DIR$/public/partials/tournaments-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1494">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        <state vertical-scroll-proportion="-13.814815" vertical-offset="185" max-vertical-offset="1098">
+          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/partials/tournaments-list.html">
+    <entry file="file://$PROJECT_DIR$/public/dist/js/controllers/TournamentsControllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5717415" vertical-offset="0" max-vertical-offset="1188">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.64113325" vertical-offset="343" max-vertical-offset="1296">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding />
         </state>
       </provider>
