@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'mongoose-gui' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 warn package.json competewithme@ No description
+5 warn package.json competewithme@ No repository field.
+6 warn package.json competewithme@ No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'mongoose-gui', null ]
+9 verbose cache add name=undefined spec="mongoose-gui" args=["mongoose-gui",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'mongoose-gui',
+10 verbose parsed url   path: 'mongoose-gui',
+10 verbose parsed url   href: 'mongoose-gui' }
+11 silly lockFile 5aa5dd88-mongoose-gui mongoose-gui
+12 verbose lock mongoose-gui /home/payne/.npm/5aa5dd88-mongoose-gui.lock
+13 silly lockFile 5aa5dd88-mongoose-gui mongoose-gui
+14 silly lockFile 5aa5dd88-mongoose-gui mongoose-gui
+15 verbose addNamed [ 'mongoose-gui', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile f0df2818-mongoose-gui mongoose-gui@
+18 verbose lock mongoose-gui@ /home/payne/.npm/f0df2818-mongoose-gui.lock
+19 silly addNameRange { name: 'mongoose-gui', range: '*', hasData: false }
+20 verbose url raw mongoose-gui
+21 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose-gui' ]
+22 verbose url resolved https://registry.npmjs.org/mongoose-gui
+23 info trying registry request attempt 1 at 07:42:01
+24 http GET https://registry.npmjs.org/mongoose-gui
+25 http 404 https://registry.npmjs.org/mongoose-gui
+26 silly registry.get cb [ 404,
+26 silly registry.get   { date: 'Thu, 04 Dec 2014 20:14:17 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=0',
+26 silly registry.get     'content-length': '52',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-fra1237-FRA',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1417724056.915109,VS0,VE708',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly lockFile f0df2818-mongoose-gui mongoose-gui@
+28 silly lockFile f0df2818-mongoose-gui mongoose-gui@
+29 error 404 'mongoose-gui' is not in the npm registry.
+29 error 404 You should bug the author to publish it
+29 error 404
+29 error 404 Note that you can also install from a
+29 error 404 tarball, folder, or http url, or git url.
+30 error System Linux 3.13.0-39-generic
+31 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "mongoose-gui"
+32 error cwd /home/payne/workspaces/tournamator
+33 error node -v v0.10.25
+34 error npm -v 1.3.10
+35 error code E404
+36 verbose exit [ 1, true ]

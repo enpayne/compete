@@ -1,4 +1,5 @@
 var Tournament = require('./models/tournament');
+var User = require('./models/user')
 
 module.exports = function(app, passport) {
     app.get('/', function(req, res) {
@@ -14,10 +15,11 @@ module.exports = function(app, passport) {
     }
 
     app.get('/api/tournaments', function(req, res) {
-        Tournament.find(function(err, tournaments) {
-          sendJson(err, res, tournaments);
-
-       });
+        Tournament.find()
+            .populate('_owner')
+            .exec(function(err, tournaments) {
+                sendJson(err, res, tournaments);
+            });
     });
 
     app.get('/api/tournaments/:tournament_id', function(req, res) {
@@ -51,23 +53,35 @@ module.exports = function(app, passport) {
 
     });
 
-    app.post('/api/tournaments', function(req, res) {
-       Tournament.create({
-            name : req.body.name,
-            gameType : req.body.gameType,
-            area : req.body.area,
-            players : '0'
-        }, function(err, tournament) {
-           if (err) {
-               res.send(err);
-               return;
-           }
+    app.post('/api/tournaments', isLoggedIn,  function(req, res) {
 
-           Tournament.find(function(err, tournaments) {
-               sendJson(err, res, tournaments);
-           });
-       });
+        var userId = req.user.facebook.id;
 
+        User.findOne({ 'facebook.id' : userId }, function(err, user) {
+            if (err)
+                return done(err);
+
+            if (user) {
+                Tournament.create({
+                    name : req.body.name,
+                    gameType : req.body.gameType,
+                    area : req.body.area,
+                    players : '0',
+                    _owner : user._id
+                }, function(err, tournament) {
+                    if (err) {
+                        res.send(err);
+                        return;
+                    }
+
+                    user.tournaments.push(tournament._id);
+                    console.log('response ' + res);
+                    sendJson(err, res, tournament);
+                });
+
+
+            }
+        });
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {
@@ -79,7 +93,7 @@ module.exports = function(app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/cb',
         passport.authenticate('facebook', {
-            successRedirect : '/tournaments',
+            successRedirect : '/',
             failureRedirect : '/'
         }));
 
@@ -89,6 +103,9 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    app.get('/api/user', function(req, res) {
+        res.json(req.user);
+    });
 };
 
 // route middleware to make sure a user is logged in

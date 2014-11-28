@@ -1,7 +1,8 @@
 var tournamatorApp = angular.module('app',
     [   "ngRoute",
         'TournamentControllers',
-        'TournamentsService'
+        'TournamentsService',
+        'UserService'
     ]);
 
 tournamatorApp.config(['$routeProvider',
@@ -18,6 +19,10 @@ tournamatorApp.config(['$routeProvider',
             when('/tournaments/edit/:tournamentId', {
                 templateUrl: './partials/tournaments-create.html',
                 controller: 'tournamentEditController'
+            }).
+            when('/profile', {
+                templateUrl: './partials/user-profile.html',
+                controller: 'profileHomeController'
             }).
             otherwise({
                 redirectTo: '/tournaments'

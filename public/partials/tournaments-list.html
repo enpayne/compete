@@ -3,24 +3,26 @@
     <h3 class="page-header">Open tournaments</h3>
 </div>
 
-<div class="row" ng-show="tournaments.length" >
-    <div class="col-md-10">
+<div class="partial-content">
+    <div class="row" ng-show="tournaments.length" >
         <table class="table table-hover table-striped tournaments-table">
             <thead>
                 <tr>
-                    <th class="col-md-4">Name</th>
+                    <th class="col-md-3">Name</th>
                     <th class="col-md-2">Game</th>
-                    <th class="col-md-3">Area</th>
+                    <th class="col-md-2">Area</th>
                     <th class="col-md-2">Players</th>
+                    <th class="col-md-2">Owner</th>
                     <th class="col-md-2"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="tournament in tournaments">
+                <tr ng-repeat="tournament in tournaments | orderBy: 'name'">
                     <td>{{tournament.name}}</td>
                     <td>{{tournament.gameType}}</td>
                     <td>{{tournament.area}}</td>
                     <td>{{tournament.players}}</td>
+                    <td>{{tournament._owner.facebook.name}}</td>
                     <td>
                         <a href=".#/tournaments/edit/{{ tournament._id }}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -35,14 +37,24 @@
             </tbody>
         </table>
     </div>
-</div>
 
-<div class="row" ng-hide="tournaments.length">
-    <strong>There are currently no tournaments. Go ahead and create one!</strong>
-</div>
 
-<div class="row top-buffer">
-        <a ng-href=".#/tournaments/create">Create new Tournament</a>
+    <div class="row" ng-hide="tournaments.length">
+        <strong ng-show="signedIn">There are currently no tournaments. Go ahead and create one!</strong>
+        <strong ng-hide="signedIn">There are currently no tournaments. Sign in below to create one!</strong>
+    </div>
+
+    <div class="row top-buffer">
+        <a ng-show="signedIn" ng-href=".#/tournaments/create">Create new Tournament</a>
+
+        <span ng-hide="signedIn" class="pull-right">Sign in via <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a></span>
+        <span ng-show="signedIn" class="pull-right">Signed in as {{ user.facebook.name }} <a href="/logout" class="btn btn-primary"><span class="fa fa-facebook"></span> Sign out</a></span>
+    </div>
+
+    <div class="row top-buffer">
+
+    </div>
+
 </div>
 
 

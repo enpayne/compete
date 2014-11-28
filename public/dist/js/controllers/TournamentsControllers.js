@@ -1,9 +1,19 @@
 angular.module('TournamentControllers', [])
 
-    .controller('tournamentListController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+    .controller('tournamentListController', ["$scope", "$location", "$routeParams", "Tournaments", "User", function($scope, $location, $routeParams, Tournaments, User) {
+
+        User.get()
+            .success(function(user) {
+                if (user) {
+                    $scope.signedIn = true;
+                }
+                $scope.user = user;
+                console.log(user);
+            });
 
         Tournaments.getAll()
             .success(function(tournaments) {
+                console.log(tournaments);
                $scope.tournaments = tournaments;
             });
 
@@ -18,6 +28,7 @@ angular.module('TournamentControllers', [])
 
     .controller('tournamentEditController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
         var tournamentId = $routeParams.tournamentId;
+
         Tournaments.getTournament(tournamentId)
             .success(function(tournament) {
                $scope.tournament = tournament;

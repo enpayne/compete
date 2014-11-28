@@ -11,7 +11,9 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    }
+    },
+
+    tournaments      : [{ type: mongoose.Schema.Types.ObjectId, ref : 'Tournament'}]
 
 });
 
