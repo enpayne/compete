@@ -8,7 +8,7 @@ var bodyParser      = require('body-parser');
 
 mongoose.connect('localhost:tournamator');
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 app.use(cookieParser());
 app.use(session({ secret: 'tournamatorsecret' })); // session secret
 app.use(passport.initialize());
