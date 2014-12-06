@@ -1,5 +1,5 @@
 {
-  "name": "competewithme",
+  "name": "tournamator",
   "main": "server.js",
   "scripts": {
     "start": "grunt"
@@ -12,7 +12,8 @@
     "passport-facebook" : "~1.0.0",
     "cookie-parser": "~1.0.0",
     "body-parser": "~1.5.2",
-    "express-session": "~1.0.0"
+    "express-session": "~1.0.0",
+    "node-env-file" : "~0.1.4"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

@@ -5,6 +5,7 @@ var passport        = require('passport');
 var cookieParser    = require('cookie-parser');
 var session         = require('express-session');
 var bodyParser      = require('body-parser');
+var env             = require('node-env-file');
 
 mongoose.connect('localhost:tournamator');
 
@@ -18,5 +19,6 @@ app.use(bodyParser());
 require('./app/routes')(app, passport);
 require('./config/passport')(passport);
 
-app.listen(3000);
-console.log('Magic happens on 8080');
+var port = 3000;
+app.listen(port);
+console.log('Server is running on port ' + port);
