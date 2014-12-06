@@ -22,6 +22,6 @@ console.log(hostName);
 require('./app/routes')(app, passport);
 require('./config/passport')(passport);
 
-var port = 8081;
+var port = 8080;
 app.listen(port);
 console.log('Server is running on port ' + port);
