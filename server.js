@@ -5,7 +5,6 @@ var passport        = require('passport');
 var cookieParser    = require('cookie-parser');
 var session         = require('express-session');
 var bodyParser      = require('body-parser');
-var env             = require('node-env-file');
 
 mongoose.connect('localhost:tournamator');
 
