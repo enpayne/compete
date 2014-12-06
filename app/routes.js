@@ -1,5 +1,6 @@
 var Tournament = require('./models/tournament');
 var User = require('./models/user')
+var gameTypes = require('./models/gameTypes.js')
 
 module.exports = function(app, passport) {
     app.get('/', function(req, res) {
@@ -12,7 +13,11 @@ module.exports = function(app, passport) {
         } else {
             res.json(json);
         }
-    }
+    };
+
+    app.get('/api/gameTypes', function(req, res) {
+       res.send(gameTypes);
+    });
 
     app.get('/api/tournaments', function(req, res) {
         Tournament.find()
@@ -45,6 +50,9 @@ module.exports = function(app, passport) {
             tournament.name = req.body.name;
             tournament.gameType = req.body.gameType;
             tournament.area = req.body.area;
+            tournament.startDate = req.body.startDate;
+            tournament.endDate = req.body.endDate;
+            tournament.description = req.body.description;
 
             tournament.save(function(err, tournament) {
                sendJson(err, res, tournament);
@@ -66,6 +74,9 @@ module.exports = function(app, passport) {
                     name : req.body.name,
                     gameType : req.body.gameType,
                     area : req.body.area,
+                    startDate : req.body.startDate,
+                    endDate : req.body.endDate,
+                    description: req.body.description,
                     players : '0',
                     _owner : user._id
                 }, function(err, tournament) {

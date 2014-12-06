@@ -33,6 +33,11 @@ angular.module('TournamentControllers', [])
     .controller('tournamentEditController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
         var tournamentId = $routeParams.tournamentId;
 
+        Tournaments.getGameTypes()
+            .success(function(gameTypes) {
+                $scope.gameTypes = gameTypes;
+            });
+
         Tournaments.getTournament(tournamentId)
             .success(function(tournament) {
                $scope.tournament = tournament;
@@ -51,6 +56,23 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentCreateController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+        var tournament = {};
+        var startDate = new Date();
+        var endDate = new Date();
+        endDate.setDate(endDate.getDate() + 7);
+
+        tournament.startDate = startDate.toISOString().split("T")[0];
+        tournament.endDate = endDate.toISOString().split("T")[0];
+
+        $scope.tournament = tournament;
+
+
+        Tournaments.getGameTypes()
+            .success(function(gameTypes) {
+                $scope.gameTypes = gameTypes;
+                $scope.tournament.gameType = gameTypes[0];
+            });
+
         $scope.save = function(tournament) {
             Tournaments.create(tournament)
                 .success(function() {

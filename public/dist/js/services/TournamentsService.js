@@ -16,6 +16,9 @@ angular.module('TournamentsService', [])
             },
             create : function(tournament) {
                 return $http.post('api/tournaments', tournament);
+            },
+            getGameTypes : function() {
+                return $http.get('api/gameTypes');
             }
         };
     }]);
