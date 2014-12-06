@@ -19,6 +19,6 @@ app.use(bodyParser());
 require('./app/routes')(app, passport);
 require('./config/passport')(passport);
 
-var port = 3000;
+var port = 8081;
 app.listen(port);
 console.log('Server is running on port ' + port);
