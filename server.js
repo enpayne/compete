@@ -5,7 +5,6 @@ var passport        = require('passport');
 var cookieParser    = require('cookie-parser');
 var session         = require('express-session');
 var bodyParser      = require('body-parser');
-var os              = require('os');
 
 mongoose.connect('localhost:tournamator');
 
@@ -15,9 +14,6 @@ app.use(session({ secret: 'tournamatorsecret' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(bodyParser());
-
-var hostName = os.hostname();
-console.log(hostName);
 
 require('./app/routes')(app, passport);
 require('./config/passport')(passport);
