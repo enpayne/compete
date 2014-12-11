@@ -8,13 +8,11 @@ angular.module('TournamentControllers', [])
                     $scope.signedIn = true;
                 }
                 $scope.user = user;
-                console.log(user);
             });
 
         Tournaments.getAll()
             .success(function(tournaments) {
-                console.log(tournaments);
-               $scope.tournaments = tournaments;
+                $scope.tournaments = tournaments;
             });
 
         $scope.delete = function(tournament) {
@@ -31,6 +29,8 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentEditController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+        $scope.editCase = true;
+
         var tournamentId = $routeParams.tournamentId;
 
         Tournaments.getGameTypes()
@@ -40,7 +40,9 @@ angular.module('TournamentControllers', [])
 
         Tournaments.getTournament(tournamentId)
             .success(function(tournament) {
-               $scope.tournament = tournament;
+                tournament.startDate = toISO(tournament.startDate);
+                tournament.endDate = toISO(tournament.endDate);
+                $scope.tournament = tournament;
             });
 
         $scope.save = function(tournament) {
@@ -56,16 +58,17 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentCreateController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+        $scope.createCase = true;
+
         var tournament = {};
         var startDate = new Date();
         var endDate = new Date();
         endDate.setDate(endDate.getDate() + 7);
 
-        tournament.startDate = startDate.toISOString().split("T")[0];
-        tournament.endDate = endDate.toISOString().split("T")[0];
+        tournament.startDate = toISO(startDate);
+        tournament.endDate = toISO(endDate);
 
         $scope.tournament = tournament;
-
 
         Tournaments.getGameTypes()
             .success(function(gameTypes) {
@@ -83,7 +86,9 @@ angular.module('TournamentControllers', [])
         $scope.cancel = function() {
             $location.path('#/tournaments');
         };
-    }])
+    }]);
 
+    var toISO = function(dateString) {
+        return new Date(dateString).toISOString().split("T")[0];
+    };
 
-    ;

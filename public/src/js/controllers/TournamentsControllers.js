@@ -10,6 +10,8 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentEditController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+        $scope.editCase = true;
+
         var tournamentId = $routeParams.tournamentId;
 
         Tournaments.getTournament(tournamentId)
@@ -30,6 +32,8 @@ angular.module('TournamentControllers', [])
     }])
 
     .controller('tournamentCreateController', ["$scope", "$location", "$routeParams", "Tournaments", function($scope, $location, $routeParams, Tournaments) {
+        $scope.createCase = true;
+
         $scope.save = function(tournament) {
             Tournaments.create(tournament)
                 .success(function() {

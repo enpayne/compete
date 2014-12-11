@@ -18,6 +18,15 @@ module.exports = function(grunt) {
             }
         },
 
+        //copy : {
+        //      files : {
+        //          cwd : 'public/src/js',
+        //          src: '**/*',
+        //          dest: 'public/dist/js',
+        //          expand: true
+        //      }
+        //},
+
         // CSS TASKS ===============================================================
         // process the less file to style.css
         less: {
@@ -80,8 +89,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-copy');
 
-    grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
+    grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent', 'copy']);
 
 
 };

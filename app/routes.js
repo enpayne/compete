@@ -85,8 +85,8 @@ module.exports = function(app, passport) {
                         return;
                     }
 
+                    console.log('created tournament: ' + tournament);
                     user.tournaments.push(tournament._id);
-                    console.log('response ' + res);
                     sendJson(err, res, tournament);
                 });
 

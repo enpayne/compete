@@ -5,6 +5,8 @@ var tournamentSchema = mongoose.Schema({
         gameType : String,
         area : String,
         players : String,
+        startDate : Date,
+        endDate : Date,
         _owner : { type : mongoose.Schema.Types.ObjectId, ref : 'User'}
 });
 
